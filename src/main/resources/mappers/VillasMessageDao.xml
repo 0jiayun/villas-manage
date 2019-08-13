@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.VillasMessageDao">
+  <resultMap id="BaseResultMap" type="pojo.VillasMessage">
+    <id column="build_no" jdbcType="VARCHAR" property="buildNo" />
+    <result column="build_name" jdbcType="VARCHAR" property="buildName" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="begin_time" jdbcType="VARCHAR" property="beginTime" />
+    <result column="finish_time" jdbcType="VARCHAR" property="finishTime" />
+    <result column="data_saving" jdbcType="INTEGER" property="dataSaving" />
+    <result column="use_state" jdbcType="INTEGER" property="useState" />
+    <result column="user" jdbcType="VARCHAR" property="user" />
+    <result column="owner" jdbcType="VARCHAR" property="owner" />
+    <result column="custodian" jdbcType="VARCHAR" property="custodian" />
+    <result column="all_area" jdbcType="DECIMAL" property="allArea" />
+    <result column="all_deep" jdbcType="DECIMAL" property="allDeep" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="road" jdbcType="INTEGER" property="road" />
+    <result column="jin" jdbcType="INTEGER" property="jin" />
+    <result column="bearing_sit" jdbcType="VARCHAR" property="bearingSit" />
+    <result column="bearing_to" jdbcType="VARCHAR" property="bearingTo" />
+    <result column="decorate_picture" jdbcType="INTEGER" property="decoratePicture" />
+    <result column="room_top" jdbcType="INTEGER" property="roomTop" />
+    <result column="structure" jdbcType="INTEGER" property="structure" />
+    <result column="wall_material" jdbcType="INTEGER" property="wallMaterial" />
+    <result column="floor_material" jdbcType="INTEGER" property="floorMaterial" />
+    <result column="stair_material" jdbcType="INTEGER" property="stairMaterial" />
+    <result column="beam_material" jdbcType="INTEGER" property="beamMaterial" />
+    <result column="ground_material" jdbcType="INTEGER" property="groundMaterial" />
+    <result column="intact_degree" jdbcType="INTEGER" property="intactDegree" />
+    <result column="surroundings" jdbcType="INTEGER" property="surroundings" />
+    <result column="sur_pro_degree" jdbcType="INTEGER" property="surProDegree" />
+    <result column="build_ins" jdbcType="INTEGER" property="buildIns" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    build_no, build_name, address, begin_time, finish_time, data_saving, use_state, user, 
+    owner, custodian, all_area, all_deep, type, road, jin, bearing_sit, bearing_to, decorate_picture, 
+    room_top, structure, wall_material, floor_material, stair_material, beam_material, 
+    ground_material, intact_degree, surroundings, sur_pro_degree, build_ins
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from villas_message
+    where build_no = #{buildNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from villas_message
+    where build_no = #{buildNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="pojo.VillasMessage">
+    insert into villas_message (build_no, build_name, address, 
+      begin_time, finish_time, data_saving, 
+      use_state, user, owner, 
+      custodian, all_area, all_deep, 
+      type, road, jin, bearing_sit, 
+      bearing_to, decorate_picture, room_top, 
+      structure, wall_material, floor_material, 
+      stair_material, beam_material, ground_material, 
+      intact_degree, surroundings, sur_pro_degree, 
+      build_ins)
+    values (#{buildNo,jdbcType=VARCHAR}, #{buildName,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{beginTime,jdbcType=VARCHAR}, #{finishTime,jdbcType=VARCHAR}, #{dataSaving,jdbcType=INTEGER}, 
+      #{useState,jdbcType=INTEGER}, #{user,jdbcType=VARCHAR}, #{owner,jdbcType=VARCHAR}, 
+      #{custodian,jdbcType=VARCHAR}, #{allArea,jdbcType=DECIMAL}, #{allDeep,jdbcType=DECIMAL}, 
+      #{type,jdbcType=INTEGER}, #{road,jdbcType=INTEGER}, #{jin,jdbcType=INTEGER}, #{bearingSit,jdbcType=VARCHAR}, 
+      #{bearingTo,jdbcType=VARCHAR}, #{decoratePicture,jdbcType=INTEGER}, #{roomTop,jdbcType=INTEGER}, 
+      #{structure,jdbcType=INTEGER}, #{wallMaterial,jdbcType=INTEGER}, #{floorMaterial,jdbcType=INTEGER}, 
+      #{stairMaterial,jdbcType=INTEGER}, #{beamMaterial,jdbcType=INTEGER}, #{groundMaterial,jdbcType=INTEGER}, 
+      #{intactDegree,jdbcType=INTEGER}, #{surroundings,jdbcType=INTEGER}, #{surProDegree,jdbcType=INTEGER}, 
+      #{buildIns,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="pojo.VillasMessage">
+    insert into villas_message
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="buildNo != null">
+        build_no,
+      </if>
+      <if test="buildName != null">
+        build_name,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="beginTime != null">
+        begin_time,
+      </if>
+      <if test="finishTime != null">
+        finish_time,
+      </if>
+      <if test="dataSaving != null">
+        data_saving,
+      </if>
+      <if test="useState != null">
+        use_state,
+      </if>
+      <if test="user != null">
+        user,
+      </if>
+      <if test="owner != null">
+        owner,
+      </if>
+      <if test="custodian != null">
+        custodian,
+      </if>
+      <if test="allArea != null">
+        all_area,
+      </if>
+      <if test="allDeep != null">
+        all_deep,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="road != null">
+        road,
+      </if>
+      <if test="jin != null">
+        jin,
+      </if>
+      <if test="bearingSit != null">
+        bearing_sit,
+      </if>
+      <if test="bearingTo != null">
+        bearing_to,
+      </if>
+      <if test="decoratePicture != null">
+        decorate_picture,
+      </if>
+      <if test="roomTop != null">
+        room_top,
+      </if>
+      <if test="structure != null">
+        structure,
+      </if>
+      <if test="wallMaterial != null">
+        wall_material,
+      </if>
+      <if test="floorMaterial != null">
+        floor_material,
+      </if>
+      <if test="stairMaterial != null">
+        stair_material,
+      </if>
+      <if test="beamMaterial != null">
+        beam_material,
+      </if>
+      <if test="groundMaterial != null">
+        ground_material,
+      </if>
+      <if test="intactDegree != null">
+        intact_degree,
+      </if>
+      <if test="surroundings != null">
+        surroundings,
+      </if>
+      <if test="surProDegree != null">
+        sur_pro_degree,
+      </if>
+      <if test="buildIns != null">
+        build_ins,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="buildNo != null">
+        #{buildNo,jdbcType=VARCHAR},
+      </if>
+      <if test="buildName != null">
+        #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="beginTime != null">
+        #{beginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="finishTime != null">
+        #{finishTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataSaving != null">
+        #{dataSaving,jdbcType=INTEGER},
+      </if>
+      <if test="useState != null">
+        #{useState,jdbcType=INTEGER},
+      </if>
+      <if test="user != null">
+        #{user,jdbcType=VARCHAR},
+      </if>
+      <if test="owner != null">
+        #{owner,jdbcType=VARCHAR},
+      </if>
+      <if test="custodian != null">
+        #{custodian,jdbcType=VARCHAR},
+      </if>
+      <if test="allArea != null">
+        #{allArea,jdbcType=DECIMAL},
+      </if>
+      <if test="allDeep != null">
+        #{allDeep,jdbcType=DECIMAL},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="road != null">
+        #{road,jdbcType=INTEGER},
+      </if>
+      <if test="jin != null">
+        #{jin,jdbcType=INTEGER},
+      </if>
+      <if test="bearingSit != null">
+        #{bearingSit,jdbcType=VARCHAR},
+      </if>
+      <if test="bearingTo != null">
+        #{bearingTo,jdbcType=VARCHAR},
+      </if>
+      <if test="decoratePicture != null">
+        #{decoratePicture,jdbcType=INTEGER},
+      </if>
+      <if test="roomTop != null">
+        #{roomTop,jdbcType=INTEGER},
+      </if>
+      <if test="structure != null">
+        #{structure,jdbcType=INTEGER},
+      </if>
+      <if test="wallMaterial != null">
+        #{wallMaterial,jdbcType=INTEGER},
+      </if>
+      <if test="floorMaterial != null">
+        #{floorMaterial,jdbcType=INTEGER},
+      </if>
+      <if test="stairMaterial != null">
+        #{stairMaterial,jdbcType=INTEGER},
+      </if>
+      <if test="beamMaterial != null">
+        #{beamMaterial,jdbcType=INTEGER},
+      </if>
+      <if test="groundMaterial != null">
+        #{groundMaterial,jdbcType=INTEGER},
+      </if>
+      <if test="intactDegree != null">
+        #{intactDegree,jdbcType=INTEGER},
+      </if>
+      <if test="surroundings != null">
+        #{surroundings,jdbcType=INTEGER},
+      </if>
+      <if test="surProDegree != null">
+        #{surProDegree,jdbcType=INTEGER},
+      </if>
+      <if test="buildIns != null">
+        #{buildIns,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pojo.VillasMessage">
+    update villas_message
+    <set>
+      <if test="buildName != null">
+        build_name = #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="beginTime != null">
+        begin_time = #{beginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="finishTime != null">
+        finish_time = #{finishTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dataSaving != null">
+        data_saving = #{dataSaving,jdbcType=INTEGER},
+      </if>
+      <if test="useState != null">
+        use_state = #{useState,jdbcType=INTEGER},
+      </if>
+      <if test="user != null">
+        user = #{user,jdbcType=VARCHAR},
+      </if>
+      <if test="owner != null">
+        owner = #{owner,jdbcType=VARCHAR},
+      </if>
+      <if test="custodian != null">
+        custodian = #{custodian,jdbcType=VARCHAR},
+      </if>
+      <if test="allArea != null">
+        all_area = #{allArea,jdbcType=DECIMAL},
+      </if>
+      <if test="allDeep != null">
+        all_deep = #{allDeep,jdbcType=DECIMAL},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="road != null">
+        road = #{road,jdbcType=INTEGER},
+      </if>
+      <if test="jin != null">
+        jin = #{jin,jdbcType=INTEGER},
+      </if>
+      <if test="bearingSit != null">
+        bearing_sit = #{bearingSit,jdbcType=VARCHAR},
+      </if>
+      <if test="bearingTo != null">
+        bearing_to = #{bearingTo,jdbcType=VARCHAR},
+      </if>
+      <if test="decoratePicture != null">
+        decorate_picture = #{decoratePicture,jdbcType=INTEGER},
+      </if>
+      <if test="roomTop != null">
+        room_top = #{roomTop,jdbcType=INTEGER},
+      </if>
+      <if test="structure != null">
+        structure = #{structure,jdbcType=INTEGER},
+      </if>
+      <if test="wallMaterial != null">
+        wall_material = #{wallMaterial,jdbcType=INTEGER},
+      </if>
+      <if test="floorMaterial != null">
+        floor_material = #{floorMaterial,jdbcType=INTEGER},
+      </if>
+      <if test="stairMaterial != null">
+        stair_material = #{stairMaterial,jdbcType=INTEGER},
+      </if>
+      <if test="beamMaterial != null">
+        beam_material = #{beamMaterial,jdbcType=INTEGER},
+      </if>
+      <if test="groundMaterial != null">
+        ground_material = #{groundMaterial,jdbcType=INTEGER},
+      </if>
+      <if test="intactDegree != null">
+        intact_degree = #{intactDegree,jdbcType=INTEGER},
+      </if>
+      <if test="surroundings != null">
+        surroundings = #{surroundings,jdbcType=INTEGER},
+      </if>
+      <if test="surProDegree != null">
+        sur_pro_degree = #{surProDegree,jdbcType=INTEGER},
+      </if>
+      <if test="buildIns != null">
+        build_ins = #{buildIns,jdbcType=INTEGER},
+      </if>
+    </set>
+    where build_no = #{buildNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pojo.VillasMessage">
+    update villas_message
+    set build_name = #{buildName,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      begin_time = #{beginTime,jdbcType=VARCHAR},
+      finish_time = #{finishTime,jdbcType=VARCHAR},
+      data_saving = #{dataSaving,jdbcType=INTEGER},
+      use_state = #{useState,jdbcType=INTEGER},
+      user = #{user,jdbcType=VARCHAR},
+      owner = #{owner,jdbcType=VARCHAR},
+      custodian = #{custodian,jdbcType=VARCHAR},
+      all_area = #{allArea,jdbcType=DECIMAL},
+      all_deep = #{allDeep,jdbcType=DECIMAL},
+      type = #{type,jdbcType=INTEGER},
+      road = #{road,jdbcType=INTEGER},
+      jin = #{jin,jdbcType=INTEGER},
+      bearing_sit = #{bearingSit,jdbcType=VARCHAR},
+      bearing_to = #{bearingTo,jdbcType=VARCHAR},
+      decorate_picture = #{decoratePicture,jdbcType=INTEGER},
+      room_top = #{roomTop,jdbcType=INTEGER},
+      structure = #{structure,jdbcType=INTEGER},
+      wall_material = #{wallMaterial,jdbcType=INTEGER},
+      floor_material = #{floorMaterial,jdbcType=INTEGER},
+      stair_material = #{stairMaterial,jdbcType=INTEGER},
+      beam_material = #{beamMaterial,jdbcType=INTEGER},
+      ground_material = #{groundMaterial,jdbcType=INTEGER},
+      intact_degree = #{intactDegree,jdbcType=INTEGER},
+      surroundings = #{surroundings,jdbcType=INTEGER},
+      sur_pro_degree = #{surProDegree,jdbcType=INTEGER},
+      build_ins = #{buildIns,jdbcType=INTEGER}
+    where build_no = #{buildNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

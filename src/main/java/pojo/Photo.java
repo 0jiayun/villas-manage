@@ -8,6 +8,22 @@ public class Photo {
 
     private String photoNo;
 
+    private int lineNo;
+
+    public Photo(String buildNo, String photoNo, int lineNo) {
+        this.buildNo = buildNo;
+        this.photoNo = photoNo;
+        this.lineNo = lineNo;
+    }
+
+    public int getLineNo() {
+        return lineNo;
+    }
+
+    public void setLineNo(int lineNo) {
+        this.lineNo = lineNo;
+    }
+
     public String getBuildNo() {
         return buildNo;
     }

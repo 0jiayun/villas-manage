@@ -8,6 +8,22 @@ public class Sketch {
 
     private String pictureNo;
 
+    private int lineNo;
+
+    public Sketch(String buildNo, String pictureNo, int lineNo) {
+        this.buildNo = buildNo;
+        this.pictureNo = pictureNo;
+        this.lineNo = lineNo;
+    }
+
+    public int getLineNo() {
+        return lineNo;
+    }
+
+    public void setLineNo(int lineNo) {
+        this.lineNo = lineNo;
+    }
+
     public Sketch(String buildNo, String pictureNo) {
         this.buildNo = buildNo;
         this.pictureNo = pictureNo;

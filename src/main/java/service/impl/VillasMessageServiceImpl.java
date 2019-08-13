@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pojo.*;
 import service.VillasMessageService;
+import utils.MapUtils;
+import utils.TimeToString;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -13,9 +15,16 @@ import java.util.*;
 public class VillasMessageServiceImpl implements VillasMessageService {
     @Autowired
     private VillasMessageDao villasMessageDao;
+    @Autowired
     private InterviewRecordDao interviewRecordDao;
+
+    @Autowired
     private InvestigateDao investigateDao;
+
+    @Autowired
     private SketchDao sketchDao;
+
+    @Autowired
     private PhotoDao photoDao;
 
 
@@ -36,7 +45,7 @@ public class VillasMessageServiceImpl implements VillasMessageService {
             List<Integer> nums=new ArrayList<>();
             for (Map<String,Object> map:villasMap){
                 String villaS=map.get("build_no").toString();
-                villaS=villaS.substring(7,11);
+                villaS=villaS.substring(8,12);//substring不计头计尾
                 int villaI=Integer.parseInt(villaS);
                 nums.add(villaI);
 
@@ -60,23 +69,30 @@ public class VillasMessageServiceImpl implements VillasMessageService {
         String msg="";//记录信息
 
 
-        VillasMessage villasMessage=(VillasMessage) map.get("villasMessage");//主要信息
-        Investigate investigate=(Investigate) map.get("investigate") ;//调查信息
-        InterviewRecord interviewRecord=(InterviewRecord) map.get("interviewRecord");//访谈记录+宗族
+
+        VillasMessage villasMessage= MapUtils.mapToBean((Map<String, Object>) map.get("villasMessage"),VillasMessage.class);//主要信息
+        Investigate investigate=MapUtils.mapToBean((Map<String, Object>) map.get("investigate"),Investigate.class)  ;//调查信息
+        InterviewRecord interviewRecord=MapUtils.mapToBean((Map<String, Object>) map.get("interviewRecord"),InterviewRecord.class);//访谈记录+宗族
         List<String> photoList=(List<String>)map.get("photoList");//照片路径集合
         List<String> sketchList=(List<String>)map.get("sketchList");//草图路径集合
+        String nowTime= TimeToString.getNowTimeString();//当前时间
+
+        villasMessage.setInsertTime(nowTime);
+        villasMessage.setUpdateTime(nowTime);
 
         String buildNo=this.getBuildNo();//编号
         villasMessage.setBuildNo(buildNo);
         interviewRecord.setBuildNo(buildNo);
         investigate.setBuildNo(buildNo);
 
+
+
         if (villasMessageDao.insertSelective(villasMessage)&&interviewRecordDao.insertSelective(interviewRecord)
         &&investigateDao.insertSelective(investigate)){
             if (sketchList.size()!=0){//录入草图
                 int num=1;
                 for(String sketchUrl:sketchList){
-                    Sketch sketch=new Sketch(buildNo,sketchUrl);
+                    Sketch sketch=new Sketch(buildNo,sketchUrl,num);
                     if (!sketchDao.insertSelective(sketch)){
                         msg=msg+"第"+num+"张草图录入出错;";
                     }
@@ -87,7 +103,7 @@ public class VillasMessageServiceImpl implements VillasMessageService {
             if (photoList.size()!=0){//录入照片
                 int num=1;
                 for(String photoUrl:photoList){
-                    Photo photo=new Photo(buildNo,photoUrl);
+                    Photo photo=new Photo(buildNo,photoUrl,num);
                     if (!photoDao.insertSelective(photo)){
                         msg=msg+"第"+num+"张照片录入出错;";
                     }

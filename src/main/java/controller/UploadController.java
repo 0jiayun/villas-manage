@@ -31,6 +31,35 @@ public class UploadController {
         return result;
     }
 
+    /**
+     * 上传祠堂照片
+     * @param file
+     * @return
+     */
+    @RequestMapping("uploadPhoto")
+    @ResponseBody
+    public Map uploadPhoto(@RequestParam("file") MultipartFile file){
+        String fileName= FileUpload.getFileName();
+        Map result= FileUpload.copyPhotoImg(file,fileName);
+
+        return result;
+    }
+
+    /**
+     * 上传草图
+     * @param file
+     * @return
+     */
+    @RequestMapping("uploadSketch")
+    @ResponseBody
+    public Map uploadSketch(@RequestParam("file") MultipartFile file){
+        String fileName= FileUpload.getFileName();
+        Map result= FileUpload.copySketchImg(file,fileName);
+
+        return result;
+    }
+
+
     @RequestMapping("deleteVillaImg")
     @ResponseBody
     public Map deleteImg(@RequestBody Map map ){

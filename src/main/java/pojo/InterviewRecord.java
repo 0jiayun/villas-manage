@@ -12,7 +12,7 @@ public class InterviewRecord {
 
     private String tel;
 
-    private String clan;
+        private String clan;
 
     private String record;
 

@@ -2,9 +2,6 @@ package pojo;
 
 import java.math.BigDecimal;
 
-/**
- * 祠堂基本信息
- */
 public class VillasMessage {
     private String buildNo;
 
@@ -63,6 +60,10 @@ public class VillasMessage {
     private Integer surProDegree;
 
     private Integer buildIns;
+
+    private String insertTime;
+
+    private String updateTime;
 
     public String getBuildNo() {
         return buildNo;
@@ -294,5 +295,21 @@ public class VillasMessage {
 
     public void setBuildIns(Integer buildIns) {
         this.buildIns = buildIns;
+    }
+
+    public String getInsertTime() {
+        return insertTime;
+    }
+
+    public void setInsertTime(String insertTime) {
+        this.insertTime = insertTime == null ? null : insertTime.trim();
+    }
+
+    public String getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime == null ? null : updateTime.trim();
     }
 }

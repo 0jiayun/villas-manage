@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import service.VillasMessageService;
+import utils.TimeToString;
 
 import java.util.Map;
 
@@ -26,5 +27,9 @@ public class villasTest {
         Map<String,Object> map=testDao.getTest(1);
         System.out.println(map.get("id").toString()+map.get("test_name"));
 
+    }
+    @Test
+    public void  test3(){
+        System.out.println(TimeToString.getNowTimeString());
     }
 }

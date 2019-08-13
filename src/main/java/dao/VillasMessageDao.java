@@ -19,6 +19,5 @@ public interface VillasMessageDao {
 
     int updateByPrimaryKey(VillasMessage record);
 
-    List<Map<String,Object>> getTodayVillas(@Param("date")String date);
-
+    List<Map<String,Object>> getTodayVillas(@Param("date") String date);
 }

@@ -22,10 +22,13 @@ public class FileUpload {
 
     private final static String VILLA_PATH = "/villa-image/";//保存银行汇款图
 
+    private final static String PHOTO_PATH="/photo/";//照片路径
+    private final static String SKETCH_PATH="/sketch/";//草图路径
 
 
 
-    public static Map<String,Object> copyFile(MultipartFile file, String path, String fileName) {
+
+    public static Map<String,Object> copyFile(MultipartFile file, String path, String fileName,String pathType) {
         String type = file.getContentType();
         String typeValue = type.substring(type.lastIndexOf('/')+1);
         //      String fileName = System.currentTimeMillis()+"-"+file.hashCode()+"-"+(int)(100000000000000000L*Math.random())+"."+typeValue;
@@ -71,7 +74,7 @@ public class FileUpload {
         result.put("msg",msg);
         result.put("fileName",fileName + "." + typeValue);
         result.put("filePath",filePath);
-        result.put("sqlpath",VILLA_PATH+fileName + "." + typeValue);//保存到数据库的相对路径
+        result.put("sqlpath",pathType+fileName + "." + typeValue);//保存到数据库的相对路径
         result.put("fileTypecopyImg",type);
         return result;
     }
@@ -79,7 +82,17 @@ public class FileUpload {
 
 
     public static Map<String,Object> copyPaymentBillImg(MultipartFile file, String fileName) {
-        Map<String,Object> result = copyFile(file,PATH + VILLA_PATH ,fileName);
+        Map<String,Object> result = copyFile(file,PATH + VILLA_PATH ,fileName,VILLA_PATH);
+        return result;
+    }
+
+    public static Map<String,Object> copyPhotoImg(MultipartFile file, String fileName) {
+        Map<String,Object> result = copyFile(file,PATH + PHOTO_PATH ,fileName,PHOTO_PATH);
+        return result;
+    }
+
+    public static Map<String,Object> copySketchImg(MultipartFile file, String fileName) {
+        Map<String,Object> result = copyFile(file,PATH + SKETCH_PATH ,fileName,SKETCH_PATH);
         return result;
     }
 

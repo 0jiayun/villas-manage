@@ -4,10 +4,11 @@
   <resultMap id="BaseResultMap" type="pojo.Sketch">
     <result column="build_no" jdbcType="VARCHAR" property="buildNo" />
     <result column="picture_no" jdbcType="VARCHAR" property="pictureNo" />
+    <result column="line_no" jdbcType="INTEGER" property="lineNo" />
   </resultMap>
   <insert id="insert" parameterType="pojo.Sketch">
-    insert into sketch (build_no, picture_no)
-    values (#{buildNo,jdbcType=VARCHAR}, #{pictureNo,jdbcType=VARCHAR})
+    insert into sketch (build_no, picture_no,line_no)
+    values (#{buildNo,jdbcType=VARCHAR}, #{pictureNo,jdbcType=VARCHAR},#{lineNo,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="pojo.Sketch">
     insert into sketch
@@ -18,6 +19,9 @@
       <if test="pictureNo != null">
         picture_no,
       </if>
+      <if test="lineNo != null">
+        line_no,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="buildNo != null">
@@ -25,6 +29,9 @@
       </if>
       <if test="pictureNo != null">
         #{pictureNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lineNo != null">
+        #{lineNo,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>

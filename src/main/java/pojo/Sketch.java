@@ -8,6 +8,11 @@ public class Sketch {
 
     private String pictureNo;
 
+    public Sketch(String buildNo, String pictureNo) {
+        this.buildNo = buildNo;
+        this.pictureNo = pictureNo;
+    }
+
     public String getBuildNo() {
         return buildNo;
     }

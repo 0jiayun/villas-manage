@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.SketchDao">
+  <resultMap id="BaseResultMap" type="pojo.Sketch">
+    <result column="build_no" jdbcType="VARCHAR" property="buildNo" />
+    <result column="picture_no" jdbcType="VARCHAR" property="pictureNo" />
+  </resultMap>
+  <insert id="insert" parameterType="pojo.Sketch">
+    insert into sketch (build_no, picture_no)
+    values (#{buildNo,jdbcType=VARCHAR}, #{pictureNo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="pojo.Sketch">
+    insert into sketch
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="buildNo != null">
+        build_no,
+      </if>
+      <if test="pictureNo != null">
+        picture_no,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="buildNo != null">
+        #{buildNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pictureNo != null">
+        #{pictureNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.InterviewRecordDao">
+  <resultMap id="BaseResultMap" type="pojo.InterviewRecord">
+    <result column="build_no" jdbcType="VARCHAR" property="buildNo" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="year" jdbcType="INTEGER" property="year" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="clan" jdbcType="VARCHAR" property="clan" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="pojo.InterviewRecord">
+    <result column="record" jdbcType="LONGVARCHAR" property="record" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    record
+  </sql>
+  <insert id="insert" parameterType="pojo.InterviewRecord">
+    insert into interview_record (build_no, name, year, 
+      tel, clan, record
+      )
+    values (#{buildNo,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{year,jdbcType=INTEGER}, 
+      #{tel,jdbcType=VARCHAR}, #{clan,jdbcType=VARCHAR}, #{record,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="pojo.InterviewRecord">
+    insert into interview_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="buildNo != null">
+        build_no,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="year != null">
+        year,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+      <if test="clan != null">
+        clan,
+      </if>
+      <if test="record != null">
+        record,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="buildNo != null">
+        #{buildNo,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=INTEGER},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="clan != null">
+        #{clan,jdbcType=VARCHAR},
+      </if>
+      <if test="record != null">
+        #{record,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

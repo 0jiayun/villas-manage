@@ -12,6 +12,11 @@ public class Photo {
         return buildNo;
     }
 
+    public Photo(String buildNo, String photoNo) {
+        this.buildNo = buildNo;
+        this.photoNo = photoNo;
+    }
+
     public void setBuildNo(String buildNo) {
         this.buildNo = buildNo == null ? null : buildNo.trim();
     }

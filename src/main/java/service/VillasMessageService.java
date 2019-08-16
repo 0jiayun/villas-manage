@@ -32,5 +32,14 @@ public interface VillasMessageService {
      */
     Map getContentVilla(String buildNo);
 
+    /**
+     * 更新
+     * @param map
+     * @return
+     */
+    Map updateMessage(Map<String,Object>map);
+
+    Map deleteMessageAll(String buildNo);
+
 
 }

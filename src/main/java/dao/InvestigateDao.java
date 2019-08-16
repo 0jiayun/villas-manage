@@ -8,4 +8,8 @@ public interface InvestigateDao {
     Boolean insertSelective(Investigate record);
 
     Investigate getInvestigate(String buildNo);
+
+    Boolean updateInvestigate(Investigate investigate);
+
+    Boolean delete(String buildNo);
 }

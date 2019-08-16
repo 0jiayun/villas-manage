@@ -41,4 +41,22 @@
   <select id="getInvestigate" parameterType="String" resultType="Investigate">
     select * from investigate where build_no=#{buildNo}
   </select>
+
+  <update id="updateInvestigate" parameterType="Investigate">
+    update investigate
+    <set>
+
+      <if test="time != null">
+        time=#{time,jdbcType=VARCHAR},
+      </if>
+      <if test="invMan != null">
+        inv_man=#{invMan,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where build_no=#{buildNo}
+  </update>
+
+  <delete id="delete" parameterType="String">
+    delete from investigate where build_no=#{buildNo,jdbcType=VARCHAR}
+  </delete>
 </mapper>

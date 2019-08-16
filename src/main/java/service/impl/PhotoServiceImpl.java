@@ -22,31 +22,62 @@ public class PhotoServiceImpl implements PhotoService {
 
         List<String> photoList=(List<String>)map.get("photoList");
         String buildNo=map.get("buildNo").toString();
-        if (photoList.size()!=0){//录入草图
-
+        if (photoList.size()!=0){//录入照片
             Integer num=photoDao.findMaxLineNo(buildNo);
             if (num==null){
                 num=1;
+            }else {
+                num+=1;
             }
-            for(String photohUrl:photoList){
-                Photo photo=new Photo(buildNo,photohUrl,num);
-                if (!photoDao.insertSelective(photo)){
-                    msg=msg+"第"+num+"张图录入出错;";
-                    resultMap.put("code",1);
+            for(String photoUrl:photoList){
+                Photo photo=new Photo(buildNo,photoUrl,num);
+                try{
+                    photoDao.insertSelective(photo);
+                }catch (Exception e){
+                    msg=msg+"第"+num+"张照片录入出错;"+"图片录入失败";
+
                     resultMap.put("msg",msg);
+                    resultMap.put("code",1);
                     return resultMap;
                 }
                 num++;
             }
-        }else {
-            msg="图片数为空";
-            resultMap.put("code",0);
-            resultMap.put("msg",msg);
-            return resultMap;
         }
         msg="SUCCESS";
         resultMap.put("code",0);
         resultMap.put("msg",msg);
         return resultMap;
+    }
+
+    @Override
+    public Map updatePhoto(Photo photo) {
+        Map resultMap=new HashMap();
+        try {
+            photoDao.updatePhoto(photo);
+        }catch (Exception e){
+            resultMap.put("msg","图片更新失败");
+            resultMap.put("code",1);
+            return resultMap;
+        }
+
+        resultMap.put("msg","图片更新成功");
+        resultMap.put("code",0);
+        return resultMap;
+    }
+
+    @Override
+    public Map deleteSelective(String buildNO, Integer lineNo) {
+        Map resultMap=new HashMap();
+        try {
+            photoDao.deleteSelective(buildNO,lineNo);
+        }catch (Exception e){
+            resultMap.put("msg","图片删除失败");
+            resultMap.put("code",1);
+            return resultMap;
+        }
+        resultMap.put("msg","图片删除成功");
+        resultMap.put("code",0);
+        return resultMap;
+
     }
 }

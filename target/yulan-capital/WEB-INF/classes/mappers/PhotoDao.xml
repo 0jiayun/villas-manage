@@ -43,4 +43,21 @@
   <select id="getPhotos" resultMap="BaseResultMap" parameterType="String">
     select * from photo t where t.`build_no`=#{buildNo}
   </select>
+
+  <update id="updatePhoto" parameterType="Photo" >
+    update photo
+    <set>
+      photo_no= #{photoNo,jdbcType=VARCHAR}
+    </set>
+    where build_no=#{buildNo,jdbcType=VARCHAR} and line_no=#{lineNo,jdbcType=INTEGER}
+  </update>
+
+  <delete id="deleteAll" parameterType="String" >
+    delete from photo where build_no=#{buildNo,jdbcType=VARCHAR}
+  </delete>
+
+  <delete id="deleteSelective" >
+    delete from photo where build_no=#{buildNo,jdbcType=VARCHAR} and line_no=#{lineNo,jdbcType=INTEGER}
+  </delete>
+
 </mapper>

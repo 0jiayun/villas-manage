@@ -50,5 +50,27 @@ public class VillasMessageController {
         return villasMessageService.getContentVilla(buildNo);
     }
 
+    /**
+     * 更新祠堂主要文字信息
+     * @param map
+     * @return
+     */
+    @RequestMapping("updateMessage")
+    @ResponseBody
+    public Map updateMessage(@RequestBody Map<String,Object>map){
+        return villasMessageService.updateMessage(map);
+    }
+
+    /**
+     * 删除所有信息
+     * @param buildNo
+     * @return
+     */
+    @RequestMapping("deleteMessageAll")
+    @ResponseBody
+    public Map deleteMessageAll(@RequestParam("buildNo")String buildNo){
+        return  villasMessageService.deleteMessageAll(buildNo);
+    }
+
 
 }

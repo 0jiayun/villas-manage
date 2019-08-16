@@ -8,4 +8,8 @@ public interface InterviewRecordDao {
     Boolean insertSelective(InterviewRecord record);
 
     InterviewRecord getInterviewRecord(String buildNo);
+
+    Boolean updateInterviewRecord(InterviewRecord interviewRecord);
+
+    Boolean delete(String buildNo);
 }

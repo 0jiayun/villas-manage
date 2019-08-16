@@ -44,5 +44,21 @@
     select * from sketch t where t.`build_no`=#{buildNo}
   </select>
 
+  <update id="updateSketch" parameterType="Sketch">
+    update sketch
+    <set>
+      pictrue_no= #{pictureNo,jdbcType=VARCHAR}
+    </set>
+    where build_no=#{buildNo,jdbcType=VARCHAR} and line_no=#{lineNo,jdbcType=INTEGER}
+  </update>
+
+  <delete id="deleteAll" parameterType="String" >
+    delete from sketch where build_no=#{buildNo,jdbcType=VARCHAR}
+  </delete>
+
+  <delete id="deleteSelective" >
+    delete from sketch where build_no=#{buildNo,jdbcType=VARCHAR} and line_no=#{lineNo,jdbcType=INTEGER}
+  </delete>
+
 
 </mapper>

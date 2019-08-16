@@ -35,4 +35,12 @@
       </if>
     </trim>
   </insert>
+
+  <select id="findMaxLineNo" parameterType="String" resultType="Integer">
+    SELECT MAX(line_no) FROM photo t WHERE t.`build_no`=#{buildNo}
+  </select>
+
+  <select id="getPhotos" resultMap="BaseResultMap" parameterType="String">
+    select * from photo t where t.`build_no`=#{buildNo}
+  </select>
 </mapper>

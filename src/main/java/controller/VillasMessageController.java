@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import pojo.VillasMessage;
 import service.VillasMessageService;
 
 import java.util.Map;
@@ -26,4 +27,28 @@ public class VillasMessageController {
     public Map insertVilla(@RequestBody Map<String,Object> map){
         return villasMessageService.insertVilla(map);
     }
+
+    /**
+     * 获取祠堂列表
+     * @param villasMessage
+     * @return
+     */
+    @RequestMapping("getVillasMessages")
+    @ResponseBody
+    public Map getVillasMessages(@RequestBody VillasMessage villasMessage){
+        return villasMessageService.getVillasMessages(villasMessage);
+    }
+
+    /**
+     * 获取详细祠堂信息
+     * @param buildNo
+     * @return
+     */
+    @RequestMapping("getContentVilla")
+    @ResponseBody
+    public Map getContentVilla(@RequestParam("buildNo") String buildNo){
+        return villasMessageService.getContentVilla(buildNo);
+    }
+
+
 }

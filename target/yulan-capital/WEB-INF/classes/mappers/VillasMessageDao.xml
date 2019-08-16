@@ -408,4 +408,193 @@
   <select id="getTodayVillas" resultType="Map">
     select t.build_no from villas_message t where t.build_no like CONCAT(CONCAT('%', #{date}), '%');
   </select>
+
+  <select id="getVillasMessages" parameterType="VillasMessage" resultMap="BaseResultMap">
+    select * from villas_message
+
+    where 1=1
+
+    <if test="buildNo != null">
+      and build_no = #{buildNo,jdbcType=VARCHAR}
+    </if>
+    <if test="buildName != null">
+      and build_name like CONCAT(CONCAT('%', #{buildName,jdbcType=VARCHAR}), '%')
+    </if>
+    <if test="address != null">
+      and address like CONCAT(CONCAT('%', #{address,jdbcType=VARCHAR}, '%')
+    </if>
+    <if test="beginTime != null">
+      and #{beginTime,jdbcType=VARCHAR} &gt;= begin_time and #{beginTime,jdbcType=VARCHAR}    &lt;= finish_time
+    </if>
+
+    <if test="dataSaving != null">
+      and data_saving = #{dataSaving,jdbcType=INTEGER}
+    </if>
+    <if test="useState != null">
+      and use_state = like CONCAT(CONCAT('%', #{useState,jdbcType=INTEGER}), '%')
+    </if>
+    <if test="user != null">
+      and user = like CONCAT(CONCAT('%', #{user,jdbcType=VARCHAR}), '%')
+    </if>
+    <if test="owner != null">
+      and owner = like CONCAT(CONCAT('%', #{owner,jdbcType=VARCHAR}), '%')
+    </if>
+    <if test="custodian != null">
+      and custodian = like CONCAT(CONCAT('%', #{custodian,jdbcType=VARCHAR}), '%')
+    </if>
+    <if test="allArea != null">
+      and all_area = #{allArea,jdbcType=DECIMAL}
+    </if>
+    <if test="allDeep != null">
+      and all_deep = #{allDeep,jdbcType=DECIMAL}
+    </if>
+    <if test="type != null">
+      and type = #{type,jdbcType=INTEGER}
+    </if>
+    <if test="road != null">
+      and road = #{road,jdbcType=INTEGER
+    </if>
+    <if test="jin != null">
+      and jin = #{jin,jdbcType=INTEGER}
+    </if>
+    <if test="bearingSit != null">
+      and bearing_sit = #{bearingSit,jdbcType=VARCHAR}
+    </if>
+    <if test="bearingTo != null">
+      and bearing_to = #{bearingTo,jdbcType=VARCHAR}
+    </if>
+    <if test="decoratePicture != null">
+      and decorate_picture = #{decoratePicture,jdbcType=INTEGER}
+    </if>
+    <if test="roomTop != null">
+      and room_top = #{roomTop,jdbcType=INTEGER}
+    </if>
+    <if test="structure != null">
+      and structure = #{structure,jdbcType=INTEGER}
+    </if>
+    <if test="wallMaterial != null">
+      and wall_material = #{wallMaterial,jdbcType=INTEGER}
+    </if>
+    <if test="floorMaterial != null">
+      and floor_material = #{floorMaterial,jdbcType=INTEGER}
+    </if>
+    <if test="stairMaterial != null">
+      and stair_material = #{stairMaterial,jdbcType=INTEGER}
+    </if>
+    <if test="beamMaterial != null">
+      and beam_material = #{beamMaterial,jdbcType=INTEGER}
+    </if>
+    <if test="groundMaterial != null">
+      and ground_material = #{groundMaterial,jdbcType=INTEGER}
+    </if>
+    <if test="intactDegree != null">
+      and intact_degree = #{intactDegree,jdbcType=INTEGER}
+    </if>
+    <if test="surroundings != null">
+      and surroundings = #{surroundings,jdbcType=INTEGER}
+    </if>
+    <if test="surProDegree != null">
+      and sur_pro_degree = #{surProDegree,jdbcType=INTEGER}
+    </if>
+    <if test="buildIns != null">
+      and build_ins = #{buildIns,jdbcType=INTEGER}
+    </if>
+
+    order by update_time
+
+    limit #{start},#{number}
+
+
+  </select>
+  <select id="count" parameterType="VillasMessage" resultType="Integer">
+    select count(build_no) from villas_message
+
+    where 1=1
+
+    <if test="buildNo != null">
+      and build_no = #{buildNo,jdbcType=VARCHAR}
+    </if>
+    <if test="buildName != null">
+      and build_name like CONCAT(CONCAT('%', #{buildName,jdbcType=VARCHAR}), '%')
+    </if>
+    <if test="address != null">
+      and address like CONCAT(CONCAT('%', #{address,jdbcType=VARCHAR}, '%')
+    </if>
+    <if test="beginTime != null">
+      and #{beginTime,jdbcType=VARCHAR} &gt;= begin_time and #{beginTime,jdbcType=VARCHAR}    &lt;= finish_time
+    </if>
+
+    <if test="dataSaving != null">
+      and data_saving = #{dataSaving,jdbcType=INTEGER}
+    </if>
+    <if test="useState != null">
+      and use_state = like CONCAT(CONCAT('%', #{useState,jdbcType=INTEGER}), '%')
+    </if>
+    <if test="user != null">
+      and user = like CONCAT(CONCAT('%', #{user,jdbcType=VARCHAR}), '%')
+    </if>
+    <if test="owner != null">
+      and owner = like CONCAT(CONCAT('%', #{owner,jdbcType=VARCHAR}), '%')
+    </if>
+    <if test="custodian != null">
+      and custodian = like CONCAT(CONCAT('%', #{custodian,jdbcType=VARCHAR}), '%')
+    </if>
+    <if test="allArea != null">
+      and all_area = #{allArea,jdbcType=DECIMAL}
+    </if>
+    <if test="allDeep != null">
+      and all_deep = #{allDeep,jdbcType=DECIMAL}
+    </if>
+    <if test="type != null">
+      and type = #{type,jdbcType=INTEGER}
+    </if>
+    <if test="road != null">
+      and road = #{road,jdbcType=INTEGER
+    </if>
+    <if test="jin != null">
+      and jin = #{jin,jdbcType=INTEGER}
+    </if>
+    <if test="bearingSit != null">
+      and bearing_sit = #{bearingSit,jdbcType=VARCHAR}
+    </if>
+    <if test="bearingTo != null">
+      and bearing_to = #{bearingTo,jdbcType=VARCHAR}
+    </if>
+    <if test="decoratePicture != null">
+      and decorate_picture = #{decoratePicture,jdbcType=INTEGER}
+    </if>
+    <if test="roomTop != null">
+      and room_top = #{roomTop,jdbcType=INTEGER}
+    </if>
+    <if test="structure != null">
+      and structure = #{structure,jdbcType=INTEGER}
+    </if>
+    <if test="wallMaterial != null">
+      and wall_material = #{wallMaterial,jdbcType=INTEGER}
+    </if>
+    <if test="floorMaterial != null">
+      and floor_material = #{floorMaterial,jdbcType=INTEGER}
+    </if>
+    <if test="stairMaterial != null">
+      and stair_material = #{stairMaterial,jdbcType=INTEGER}
+    </if>
+    <if test="beamMaterial != null">
+      and beam_material = #{beamMaterial,jdbcType=INTEGER}
+    </if>
+    <if test="groundMaterial != null">
+      and ground_material = #{groundMaterial,jdbcType=INTEGER}
+    </if>
+    <if test="intactDegree != null">
+      and intact_degree = #{intactDegree,jdbcType=INTEGER}
+    </if>
+    <if test="surroundings != null">
+      and surroundings = #{surroundings,jdbcType=INTEGER}
+    </if>
+    <if test="surProDegree != null">
+      and sur_pro_degree = #{surProDegree,jdbcType=INTEGER}
+    </if>
+    <if test="buildIns != null">
+      and build_ins = #{buildIns,jdbcType=INTEGER}
+    </if>
+  </select>
 </mapper>

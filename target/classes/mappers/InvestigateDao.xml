@@ -37,4 +37,8 @@
       </if>
     </trim>
   </insert>
+
+  <select id="getInvestigate" parameterType="String" resultType="Investigate">
+    select * from investigate where build_no=#{buildNo}
+  </select>
 </mapper>

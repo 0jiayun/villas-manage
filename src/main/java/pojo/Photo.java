@@ -24,6 +24,9 @@ public class Photo {
         this.lineNo = lineNo;
     }
 
+    public Photo() {
+    }
+
     public String getBuildNo() {
         return buildNo;
     }

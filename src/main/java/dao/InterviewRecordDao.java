@@ -6,4 +6,6 @@ public interface InterviewRecordDao {
     int insert(InterviewRecord record);
 
     Boolean insertSelective(InterviewRecord record);
+
+    InterviewRecord getInterviewRecord(String buildNo);
 }

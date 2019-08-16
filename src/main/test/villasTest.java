@@ -1,12 +1,15 @@
 import dao.TestDao;
+import dao.VillasMessageDao;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import pojo.VillasMessage;
 import service.VillasMessageService;
 import utils.TimeToString;
 
+import java.util.List;
 import java.util.Map;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -16,6 +19,9 @@ public class villasTest {
     private VillasMessageService villasMessageService;
     @Autowired
     private TestDao testDao;
+
+    @Autowired
+    private VillasMessageDao villasMessageDao;
 
     @Test
     public void test1(){
@@ -30,6 +36,12 @@ public class villasTest {
     }
     @Test
     public void  test3(){
-        System.out.println(TimeToString.getNowTimeString());
+
+        VillasMessage villasMessage=new VillasMessage(0,10);
+        villasMessage.setBuildName("测试2");
+        List<VillasMessage> list=villasMessageDao.getVillasMessages(villasMessage);
+        for (VillasMessage villasMessage1:list){
+            System.out.println(villasMessage1.getBuildNo()+":"+villasMessage1.getBuildName());
+        }
     }
 }

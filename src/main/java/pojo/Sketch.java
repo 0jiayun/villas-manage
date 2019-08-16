@@ -24,6 +24,9 @@ public class Sketch {
         this.lineNo = lineNo;
     }
 
+    public Sketch() {
+    }
+
     public Sketch(String buildNo, String pictureNo) {
         this.buildNo = buildNo;
         this.pictureNo = pictureNo;

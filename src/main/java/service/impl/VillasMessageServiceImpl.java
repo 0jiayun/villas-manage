@@ -51,9 +51,9 @@ public class VillasMessageServiceImpl implements VillasMessageService {
 
             }
             int villaIMax= Collections.max(nums);
-//            order=order.substring(7,11);
+
             int o=10000;
-//            Integer i=Integer.parseInt(order);
+
             o=o+villaIMax+1;
             String p=o+"";
             p=p.substring(1);
@@ -90,7 +90,11 @@ public class VillasMessageServiceImpl implements VillasMessageService {
         if (villasMessageDao.insertSelective(villasMessage)&&interviewRecordDao.insertSelective(interviewRecord)
         &&investigateDao.insertSelective(investigate)){
             if (sketchList.size()!=0){//录入草图
-                int num=1;
+
+                Integer num=sketchDao.findMaxLineNo(buildNo);
+                if (num==null){
+                    num=1;
+                }
                 for(String sketchUrl:sketchList){
                     Sketch sketch=new Sketch(buildNo,sketchUrl,num);
                     if (!sketchDao.insertSelective(sketch)){
@@ -101,7 +105,10 @@ public class VillasMessageServiceImpl implements VillasMessageService {
             }
 
             if (photoList.size()!=0){//录入照片
-                int num=1;
+                Integer num=photoDao.findMaxLineNo(buildNo);
+                if (num==null){
+                    num=1;
+                }
                 for(String photoUrl:photoList){
                     Photo photo=new Photo(buildNo,photoUrl,num);
                     if (!photoDao.insertSelective(photo)){
@@ -120,6 +127,43 @@ public class VillasMessageServiceImpl implements VillasMessageService {
         msg=msg+"SUCCESS";
         resultMap.put("msg",msg);
         resultMap.put("code",0);
+        return resultMap;
+    }
+
+    @Override
+    public Map getVillasMessages(VillasMessage villasMessage) {
+        Map resultMap=new HashMap();
+
+        List<VillasMessage> villasMessages=villasMessageDao.getVillasMessages(villasMessage);
+        Integer num=villasMessageDao.count(villasMessage);
+
+        resultMap.put("count",num);
+        resultMap.put("data",villasMessages);
+        resultMap.put("code",0);
+        resultMap.put("msg","SUCCESS");
+
+
+        return resultMap;
+    }
+
+    @Override
+    public Map getContentVilla(String buildNo) {
+        Map resultMap=new HashMap();
+        Map data=new HashMap();
+        VillasMessage villasMessage=villasMessageDao.selectByPrimaryKey(buildNo);
+        Investigate investigate=investigateDao.getInvestigate(buildNo);
+        InterviewRecord interviewRecord=interviewRecordDao.getInterviewRecord(buildNo);
+        List<Sketch> sketches=sketchDao.getSketchs(buildNo);
+        List<Photo> photos=photoDao.getPhotos(buildNo);
+        data.put("villasMessage",villasMessage);
+        data.put("investigate",investigate);
+        data.put("interviewRecord",interviewRecord);
+        data.put("sketches",sketches);
+        data.put("photos",photos);
+        resultMap.put("data",data);
+        resultMap.put("msg","SUCCESS");
+        resultMap.put("code",1);
+
         return resultMap;
     }
 }

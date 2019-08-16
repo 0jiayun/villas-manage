@@ -65,4 +65,7 @@
       </if>
     </trim>
   </insert>
+  <select id="getInterviewRecord" resultType="InterviewRecord" parameterType="String">
+    select * from interview_record where build_no=#{buildNo}
+  </select>
 </mapper>

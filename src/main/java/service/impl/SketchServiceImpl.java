@@ -60,10 +60,11 @@ public class SketchServiceImpl implements SketchService {
         }catch (Exception e){
             resultMap.put("msg","草图更新失败");
             resultMap.put("code",1);
+
             return resultMap;
         }
         resultMap.put("msg","草图更新成功");
-        resultMap.put("code",1);
+        resultMap.put("code",0);
         return resultMap;
     }
 

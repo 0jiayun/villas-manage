@@ -18,7 +18,9 @@ public class FileUpload {
     private final static int LENGTH=1024;
 
 
-    private final static String PATH = "H:\\upload";//测试服务器路径
+//    private final static String PATH = "H:\\upload";//本地路径
+
+    private final static String PATH = "C:\\Program Files\\apache-tomcat-9.0.12\\upload";//服务器路径
 
     private final static String VILLA_PATH = "/villa-image/";//保存银行汇款图
 

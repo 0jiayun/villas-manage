@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.PhotoDao">
+  <resultMap id="BaseResultMap" type="pojo.Photo">
+    <result column="build_no" jdbcType="VARCHAR" property="buildNo" />
+    <result column="photo_no" jdbcType="VARCHAR" property="photoNo" />
+    <result column="line_no" jdbcType="INTEGER" property="lineNo" />
+  </resultMap>
+  <insert id="insert" parameterType="pojo.Photo">
+    insert into photo (build_no, photo_no,line_no)
+    values (#{buildNo,jdbcType=VARCHAR}, #{photoNo,jdbcType=VARCHAR},#{lineNo,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="pojo.Photo">
+    insert into photo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="buildNo != null">
+        build_no,
+      </if>
+      <if test="photoNo != null">
+        photo_no,
+      </if>
+      <if test="lineNo != null">
+        line_no,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="buildNo != null">
+        #{buildNo,jdbcType=VARCHAR},
+      </if>
+      <if test="photoNo != null">
+        #{photoNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lineNo != null">
+        #{lineNo,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="findMaxLineNo" parameterType="String" resultType="Integer">
+    SELECT MAX(line_no) FROM photo t WHERE t.`build_no`=#{buildNo}
+  </select>
+
+  <select id="getPhotos" resultMap="BaseResultMap" parameterType="String">
+    select * from photo t where t.`build_no`=#{buildNo}
+  </select>
+
+  <update id="updatePhoto" parameterType="Photo" >
+    update photo
+    <set>
+      photo_no= #{photoNo,jdbcType=VARCHAR}
+    </set>
+    where build_no=#{buildNo,jdbcType=VARCHAR} and line_no=#{lineNo,jdbcType=INTEGER}
+  </update>
+
+  <delete id="deleteAll" parameterType="String" >
+    delete from photo where build_no=#{buildNo,jdbcType=VARCHAR}
+  </delete>
+
+  <delete id="deleteSelective" >
+    delete from photo where build_no=#{buildNo,jdbcType=VARCHAR} and line_no=#{lineNo,jdbcType=INTEGER}
+  </delete>
+
+</mapper>

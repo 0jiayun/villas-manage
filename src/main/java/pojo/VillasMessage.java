@@ -7,6 +7,8 @@ public class VillasMessage {
 
     private String buildName;
 
+    private String protectGrade;
+
     private String address;
 
     private String beginTime;//页面查询当成建造时间
@@ -51,6 +53,8 @@ public class VillasMessage {
 
     private Integer beamMaterial;
 
+    private Integer pillarMaterial;
+
     private Integer groundMaterial;
 
     private Integer intactDegree;
@@ -69,6 +73,58 @@ public class VillasMessage {
     private Integer start;
 
     private Integer number;
+
+    public VillasMessage(String buildNo, String buildName, String protectGrade, String address, String beginTime, String finishTime, Integer dataSaving, Integer useState, String user, String owner, String custodian, BigDecimal allArea, BigDecimal allDeep, Integer type, Integer road, Integer jin, String bearingSit, String bearingTo, Integer decoratePicture, Integer roomTop, Integer structure, Integer wallMaterial, Integer floorMaterial, Integer stairMaterial, Integer beamMaterial, Integer pillarMaterial, Integer groundMaterial, Integer intactDegree, Integer surroundings, Integer surProDegree, Integer buildIns, String insertTime, String updateTime) {
+        this.buildNo = buildNo;
+        this.buildName = buildName;
+        this.protectGrade = protectGrade;
+        this.address = address;
+        this.beginTime = beginTime;
+        this.finishTime = finishTime;
+        this.dataSaving = dataSaving;
+        this.useState = useState;
+        this.user = user;
+        this.owner = owner;
+        this.custodian = custodian;
+        this.allArea = allArea;
+        this.allDeep = allDeep;
+        this.type = type;
+        this.road = road;
+        this.jin = jin;
+        this.bearingSit = bearingSit;
+        this.bearingTo = bearingTo;
+        this.decoratePicture = decoratePicture;
+        this.roomTop = roomTop;
+        this.structure = structure;
+        this.wallMaterial = wallMaterial;
+        this.floorMaterial = floorMaterial;
+        this.stairMaterial = stairMaterial;
+        this.beamMaterial = beamMaterial;
+        this.pillarMaterial = pillarMaterial;
+        this.groundMaterial = groundMaterial;
+        this.intactDegree = intactDegree;
+        this.surroundings = surroundings;
+        this.surProDegree = surProDegree;
+        this.buildIns = buildIns;
+        this.insertTime = insertTime;
+        this.updateTime = updateTime;
+    }
+
+    public String getProtectGrade() {
+        return protectGrade;
+    }
+
+    public void setProtectGrade(String protectGrade) {
+        this.protectGrade = protectGrade;
+    }
+
+    public Integer getPillarMaterial() {
+        return pillarMaterial;
+    }
+
+    public void setPillarMaterial(Integer pillarMaterial) {
+        this.pillarMaterial = pillarMaterial;
+    }
 
     public Integer getStart() {
         return start;

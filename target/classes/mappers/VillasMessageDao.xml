@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="pojo.VillasMessage">
     <id column="build_no" jdbcType="VARCHAR" property="buildNo" />
     <result column="build_name" jdbcType="VARCHAR" property="buildName" />
+    <result column="protect_grade" jdbcType="VARCHAR" property="protectGrade" />
     <result column="address" jdbcType="VARCHAR" property="address" />
     <result column="begin_time" jdbcType="VARCHAR" property="beginTime" />
     <result column="finish_time" jdbcType="VARCHAR" property="finishTime" />
@@ -26,6 +27,7 @@
     <result column="floor_material" jdbcType="INTEGER" property="floorMaterial" />
     <result column="stair_material" jdbcType="INTEGER" property="stairMaterial" />
     <result column="beam_material" jdbcType="INTEGER" property="beamMaterial" />
+    <result column="pillar_material" jdbcType="INTEGER" property="pillarMaterial" />
     <result column="ground_material" jdbcType="INTEGER" property="groundMaterial" />
     <result column="intact_degree" jdbcType="INTEGER" property="intactDegree" />
     <result column="surroundings" jdbcType="INTEGER" property="surroundings" />
@@ -35,11 +37,11 @@
     <result column="update_time" jdbcType="VARCHAR" property="updateTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    build_no, build_name, address, begin_time, finish_time, data_saving, use_state, user, 
-    owner, custodian, all_area, all_deep, type, road, jin, bearing_sit, bearing_to, decorate_picture, 
-    room_top, structure, wall_material, floor_material, stair_material, beam_material, 
-    ground_material, intact_degree, surroundings, sur_pro_degree, build_ins, insert_time, 
-    update_time
+    build_no, build_name, protect_grade, address, begin_time, finish_time, data_saving,
+    use_state, user, owner, custodian, all_area, all_deep, type, road, jin, bearing_sit,
+    bearing_to, decorate_picture, room_top, structure, wall_material, floor_material,
+    stair_material, beam_material, pillar_material, ground_material, intact_degree, surroundings,
+    sur_pro_degree, build_ins, insert_time, update_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
@@ -52,25 +54,27 @@
     where build_no = #{buildNo,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="pojo.VillasMessage">
-    insert into villas_message (build_no, build_name, address, 
-      begin_time, finish_time, data_saving, 
-      use_state, user, owner, 
-      custodian, all_area, all_deep, 
-      type, road, jin, bearing_sit, 
-      bearing_to, decorate_picture, room_top, 
-      structure, wall_material, floor_material, 
-      stair_material, beam_material, ground_material, 
-      intact_degree, surroundings, sur_pro_degree, 
+    insert into villas_message (build_no, build_name, protect_grade,
+      address, begin_time, finish_time,
+      data_saving, use_state, user,
+      owner, custodian, all_area,
+      all_deep, type, road,
+      jin, bearing_sit, bearing_to,
+      decorate_picture, room_top, structure,
+      wall_material, floor_material, stair_material,
+      beam_material, pillar_material, ground_material,
+      intact_degree, surroundings, sur_pro_degree,
       build_ins, insert_time, update_time
       )
-    values (#{buildNo,jdbcType=VARCHAR}, #{buildName,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
-      #{beginTime,jdbcType=VARCHAR}, #{finishTime,jdbcType=VARCHAR}, #{dataSaving,jdbcType=INTEGER}, 
-      #{useState,jdbcType=INTEGER}, #{user,jdbcType=VARCHAR}, #{owner,jdbcType=VARCHAR}, 
-      #{custodian,jdbcType=VARCHAR}, #{allArea,jdbcType=DECIMAL}, #{allDeep,jdbcType=DECIMAL}, 
-      #{type,jdbcType=INTEGER}, #{road,jdbcType=INTEGER}, #{jin,jdbcType=INTEGER}, #{bearingSit,jdbcType=VARCHAR}, 
-      #{bearingTo,jdbcType=VARCHAR}, #{decoratePicture,jdbcType=INTEGER}, #{roomTop,jdbcType=INTEGER}, 
-      #{structure,jdbcType=INTEGER}, #{wallMaterial,jdbcType=INTEGER}, #{floorMaterial,jdbcType=INTEGER}, 
-      #{stairMaterial,jdbcType=INTEGER}, #{beamMaterial,jdbcType=INTEGER}, #{groundMaterial,jdbcType=INTEGER}, 
+    values (#{buildNo,jdbcType=VARCHAR}, #{buildName,jdbcType=VARCHAR}, #{protectGrade,jdbcType=VARCHAR},
+      #{address,jdbcType=VARCHAR}, #{beginTime,jdbcType=VARCHAR}, #{finishTime,jdbcType=VARCHAR},
+      #{dataSaving,jdbcType=INTEGER}, #{useState,jdbcType=INTEGER}, #{user,jdbcType=VARCHAR},
+      #{owner,jdbcType=VARCHAR}, #{custodian,jdbcType=VARCHAR}, #{allArea,jdbcType=DECIMAL},
+      #{allDeep,jdbcType=DECIMAL}, #{type,jdbcType=INTEGER}, #{road,jdbcType=INTEGER},
+      #{jin,jdbcType=INTEGER}, #{bearingSit,jdbcType=VARCHAR}, #{bearingTo,jdbcType=VARCHAR},
+      #{decoratePicture,jdbcType=INTEGER}, #{roomTop,jdbcType=INTEGER}, #{structure,jdbcType=INTEGER},
+      #{wallMaterial,jdbcType=INTEGER}, #{floorMaterial,jdbcType=INTEGER}, #{stairMaterial,jdbcType=INTEGER},
+      #{beamMaterial,jdbcType=INTEGER}, #{pillarMaterial,jdbcType=INTEGER}, #{groundMaterial,jdbcType=INTEGER},
       #{intactDegree,jdbcType=INTEGER}, #{surroundings,jdbcType=INTEGER}, #{surProDegree,jdbcType=INTEGER}, 
       #{buildIns,jdbcType=INTEGER}, #{insertTime,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR}
       )
@@ -83,6 +87,9 @@
       </if>
       <if test="buildName != null">
         build_name,
+      </if>
+      <if test="protectGrade != null">
+        protect_grade,
       </if>
       <if test="address != null">
         address,
@@ -150,6 +157,9 @@
       <if test="beamMaterial != null">
         beam_material,
       </if>
+      <if test="pillarMaterial != null">
+        pillar_material,
+      </if>
       <if test="groundMaterial != null">
         ground_material,
       </if>
@@ -178,6 +188,9 @@
       </if>
       <if test="buildName != null">
         #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="protectGrade != null">
+        #{protectGrade,jdbcType=VARCHAR},
       </if>
       <if test="address != null">
         #{address,jdbcType=VARCHAR},
@@ -245,6 +258,9 @@
       <if test="beamMaterial != null">
         #{beamMaterial,jdbcType=INTEGER},
       </if>
+      <if test="pillarMaterial != null">
+        #{pillarMaterial,jdbcType=INTEGER},
+      </if>
       <if test="groundMaterial != null">
         #{groundMaterial,jdbcType=INTEGER},
       </if>
@@ -273,6 +289,9 @@
     <set>
       <if test="buildName != null">
         build_name = #{buildName,jdbcType=VARCHAR},
+      </if>
+      <if test="protectGrade != null">
+        protect_grade = #{protectGrade,jdbcType=VARCHAR},
       </if>
       <if test="address != null">
         address = #{address,jdbcType=VARCHAR},
@@ -340,6 +359,9 @@
       <if test="beamMaterial != null">
         beam_material = #{beamMaterial,jdbcType=INTEGER},
       </if>
+      <if test="pillarMaterial != null">
+        pillar_material = #{pillarMaterial,jdbcType=INTEGER},
+      </if>
       <if test="groundMaterial != null">
         ground_material = #{groundMaterial,jdbcType=INTEGER},
       </if>
@@ -365,8 +387,9 @@
     where build_no = #{buildNo,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="pojo.VillasMessage">
-    update villas_message
-    set build_name = #{buildName,jdbcType=VARCHAR},
+     update villas_message
+     set build_name = #{buildName,jdbcType=VARCHAR},
+      protect_grade = #{protectGrade,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR},
       begin_time = #{beginTime,jdbcType=VARCHAR},
       finish_time = #{finishTime,jdbcType=VARCHAR},
@@ -389,6 +412,7 @@
       floor_material = #{floorMaterial,jdbcType=INTEGER},
       stair_material = #{stairMaterial,jdbcType=INTEGER},
       beam_material = #{beamMaterial,jdbcType=INTEGER},
+      pillar_material = #{pillarMaterial,jdbcType=INTEGER},
       ground_material = #{groundMaterial,jdbcType=INTEGER},
       intact_degree = #{intactDegree,jdbcType=INTEGER},
       surroundings = #{surroundings,jdbcType=INTEGER},
@@ -500,7 +524,7 @@
       and build_ins = #{buildIns,jdbcType=INTEGER}
     </if>
 
-    order by update_time
+    order by update_time desc 
 
     limit #{start},#{number}
 
@@ -517,6 +541,11 @@
     <if test="buildName != null">
       and build_name like CONCAT(CONCAT('%', #{buildName,jdbcType=VARCHAR}), '%')
     </if>
+
+    <if test="protectGrade != null">
+      protect_grade like CONCAT(CONCAT('%', #{protectGrade,jdbcType=VARCHAR}), '%')
+    </if>
+
     <if test="address != null">
       and address like CONCAT(CONCAT('%', #{address,jdbcType=VARCHAR}, '%')
     </if>
@@ -581,6 +610,11 @@
     <if test="beamMaterial != null">
       and beam_material = #{beamMaterial,jdbcType=INTEGER}
     </if>
+
+    <if test="pillarMaterial != null">
+      and pillar_material = #{pillarMaterial,jdbcType=INTEGER}
+    </if>
+
     <if test="groundMaterial != null">
       and ground_material = #{groundMaterial,jdbcType=INTEGER}
     </if>

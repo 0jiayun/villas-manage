@@ -2,19 +2,13 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="villas-manage:war exploded" />
+      <artifact name="villas-manage:war" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e011f4a0-ce13-4013-9c75-fd00cf7b2c54" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/FileUpload.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/FileUpload.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/MapUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/MapUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mappers/VillasMessageDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mappers/VillasMessageDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/FileUpload.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/FileUpload.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/villas-manage/WEB-INF/classes/mappers/VillasMessageDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/villas-manage/WEB-INF/classes/mappers/VillasMessageDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/villas-manage/WEB-INF/classes/utils/FileUpload.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/villas-manage/WEB-INF/classes/utils/FileUpload.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/VillasMessageDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/VillasMessageDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/villas-manage.war" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -47,30 +41,30 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="7" />
-          <entry key="java" value="160" />
+          <entry key="java" value="161" />
           <entry key="properties" value="6" />
-          <entry key="xml" value="65" />
+          <entry key="xml" value="66" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="7" />
-          <entry key="JAVA" value="160" />
+          <entry key="JAVA" value="161" />
           <entry key="Properties" value="6" />
-          <entry key="XML" value="65" />
+          <entry key="XML" value="66" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="4795" />
-          <entry key="xml" value="953" />
+          <entry key="xml" value="955" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="4795" />
-          <entry key="SQL" value="33" />
-          <entry key="XML" value="920" />
+          <entry key="SQL" value="34" />
+          <entry key="XML" value="921" />
         </counts>
       </usages-collector>
     </session>
@@ -80,17 +74,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/service/impl/VillasMessageServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
+            <state relative-caret-position="346">
               <caret line="79" selection-start-line="79" selection-end-line="79" />
             </state>
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/VillasMessageDao.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="356">
+              <caret line="549" column="9" selection-start-line="549" selection-start-column="9" selection-end-line="549" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/utils/FileUpload.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="21" column="82" lean-forward="true" selection-start-line="21" selection-start-column="82" selection-end-line="21" selection-end-column="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/utils/MapUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="76" column="101" selection-start-line="76" selection-start-column="101" selection-end-line="76" selection-end-column="101" />
+            <state relative-caret-position="505">
+              <caret line="76" column="101" lean-forward="true" selection-start-line="76" selection-start-column="79" selection-end-line="76" selection-end-column="101" />
             </state>
           </provider>
         </entry>
@@ -121,6 +133,8 @@
       <find>finalName</find>
       <find>updateSketch</find>
       <find>mysql</find>
+      <find>protect_grade</find>
+      <find>beam_material</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -164,9 +178,9 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
         <option value="$PROJECT_DIR$/src/main/java/pojo/VillasMessage.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mappers/VillasMessageDao.xml" />
         <option value="$PROJECT_DIR$/src/main/java/utils/FileUpload.java" />
         <option value="$PROJECT_DIR$/src/main/java/utils/MapUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mappers/VillasMessageDao.xml" />
       </list>
     </option>
   </component>
@@ -200,8 +214,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1928" />
-    <option name="y" value="-8" />
+    <option name="x" value="-1996" />
+    <option name="y" value="19" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -338,7 +352,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://H:/villas-manage/src/main/resources/mappers/VillasMessageDao.xml" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566381320215" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566394891265" />
     <property name="last_opened_file_path" value="D:/masterspring4.x/wangpan/chapter2" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -544,7 +558,7 @@
       <workItem from="1566267710982" duration="2210000" />
       <workItem from="1566352778886" duration="597000" />
       <workItem from="1566374130248" duration="2848000" />
-      <workItem from="1566378563271" duration="2840000" />
+      <workItem from="1566378563271" duration="4982000" />
     </task>
     <servers />
   </component>
@@ -578,7 +592,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78162000" />
+    <option name="totallyTimeSpent" value="80304000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -591,10 +605,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8935574" visible="true" weight="0.18036287" />
-      <window_info id="Structure" order="1" sideWeight="0.10644258" side_tool="true" visible="true" weight="0.18036287" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8923395" visible="true" weight="0.18036287" />
+      <window_info id="Structure" order="1" sideWeight="0.10766046" side_tool="true" visible="true" weight="0.18036287" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -603,13 +616,13 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22137405" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.47328246" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39803708" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.09403438" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32971507" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.17627856" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.33151582" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3283582" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32971507" />
@@ -872,13 +885,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/utils/FileUpload.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="21" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/PhotoDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -911,13 +917,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2790">
           <caret line="55" column="34" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/VillasMessageDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8895">
-          <caret line="526" column="29" selection-start-line="526" selection-start-column="29" selection-end-line="526" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -956,17 +955,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/utils/MapUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="76" column="101" lean-forward="true" selection-start-line="76" selection-start-column="79" selection-end-line="76" selection-end-column="101" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/service/impl/VillasMessageServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
+        <state relative-caret-position="346">
           <caret line="79" selection-start-line="79" selection-end-line="79" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/utils/MapUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/VillasMessageDao.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="76" column="101" selection-start-line="76" selection-start-column="101" selection-end-line="76" selection-end-column="101" />
+        <state relative-caret-position="356">
+          <caret line="549" column="9" selection-start-line="549" selection-start-column="9" selection-end-line="549" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/utils/FileUpload.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="21" column="82" lean-forward="true" selection-start-line="21" selection-start-column="82" selection-end-line="21" selection-end-column="82" />
         </state>
       </provider>
     </entry>

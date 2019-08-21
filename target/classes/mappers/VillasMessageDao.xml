@@ -444,6 +444,10 @@
     <if test="buildName != null">
       and build_name like CONCAT(CONCAT('%', #{buildName,jdbcType=VARCHAR}), '%')
     </if>
+    <if test="protectGrade != null">
+      and protect_grade like CONCAT(CONCAT('%', #{protectGrade,jdbcType=VARCHAR}), '%')
+    </if>
+
     <if test="address != null">
       and address like CONCAT(CONCAT('%', #{address,jdbcType=VARCHAR}, '%')
     </if>
@@ -543,7 +547,7 @@
     </if>
 
     <if test="protectGrade != null">
-      protect_grade like CONCAT(CONCAT('%', #{protectGrade,jdbcType=VARCHAR}), '%')
+      and protect_grade like CONCAT(CONCAT('%', #{protectGrade,jdbcType=VARCHAR}), '%')
     </if>
 
     <if test="address != null">

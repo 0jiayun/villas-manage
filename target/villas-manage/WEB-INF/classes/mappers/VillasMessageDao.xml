@@ -524,7 +524,7 @@
       and build_ins = #{buildIns,jdbcType=INTEGER}
     </if>
 
-    order by update_time desc 
+    order by update_time desc
 
     limit #{start},#{number}
 

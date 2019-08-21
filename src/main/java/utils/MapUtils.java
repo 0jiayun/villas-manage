@@ -5,6 +5,7 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.beanutils.PropertyUtilsBean;
 import org.apache.commons.beanutils.converters.BigDecimalConverter;
+import org.apache.commons.beanutils.converters.IntegerConverter;
 import org.springframework.cglib.beans.BeanMap;
 
 import java.beans.PropertyDescriptor;
@@ -73,6 +74,7 @@ public class MapUtils {
             bean = class1.newInstance();
             ConvertUtils.register(new org.apache.commons.beanutils.converters.DateConverter(null), java.util.Date.class);
             ConvertUtils.register(new BigDecimalConverter(BigDecimal.valueOf(0)), BigDecimal.class);//当BigDecimal为null时转为0
+            ConvertUtils.register(new IntegerConverter(null), Integer.class);//当int为null时，保持为null而不是0
 //            BeanUtilEx.populate(bean,map);
             BeanUtils.populate(bean, map);
         } catch (InstantiationException e) {
